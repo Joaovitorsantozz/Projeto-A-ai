@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link href="{{url_for('static',filename='style.css')}}" rel="stylesheet" />
+    <script type="text/javascript">
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            var logo = document.querySelector(".logo");
+            logo.classList.toggle("logo-sticky", window.scrollY > 0);
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+    </script>
+</head>
+
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a class="logo"></a>
+            <ul class="nav-sec">
+                <li class="nav-item"><a>Home</a></li>
+                <li class="nav-item"><a>Contato</a></li>
+                <li class="nav-item"><a>Sobre</a></li>
+                <li class="nav-item"><a>Cardápio</a></li>
+            </ul>
+
+            <div class="ham">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+
+        <section class="sobre">
+
+            <div class="about">
+                <div class="img">
+                    <img class="background" src="{{url_for('static',filename='fundo.png')}}" />
+                </div>
+
+                <div class="des-img">
+                    <h2>Que tal conhecer nossa Linha de açais?</h2>
+                    <p>Venha conhecer a melhor açaiteria da região, oferecemos o melhor produto misturando conforto e
+                        sabor.</p>
+                </div>
+            </div>
+
+    </div>
+
+    </section>
+    <section class="options">
+        <div class="options-desc">
+
+            <div class="box-options w33">
+
+                <a><img class="model" src="{{url_for('static',filename='/res/modelo1.png')}}"></a>
+                <h2>Modelo Açaí</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <ul>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+
+            <div class="box-options w33">
+                <a><img class="model" src="{{url_for('static',filename='/res/modelo2.png')}}"></a>
+                <h2>Modelo Açaí</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <ul>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+
+            <div class="box-options w33">
+                <a><img class="model" src="{{url_for('static',filename='/res/modelo 3.png')}}"></a>
+                <h2>Modelo Açaí</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                <ul>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                    <li>Lorem ipsum</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="order">
+        <h1>Preencha os formulários abaixo para realizar seu pedido</h1>
+        <form action="/register" method="post">
+
+            <div class="ordercamp">
+                <form action="/register" method="post">
+
+                    <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
+                    <select name="model">
+                        <option disabled selected value="">Modelos</option>
+                        {% for model in models %}
+                            <option value="{{ model }}">{{ model }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <input type="submit" value="Register">
+            
+                </form>
+            </div>
+
+        
+        
+        </form>
+
+    </section>
+
+
+</body>
+
+</html>
